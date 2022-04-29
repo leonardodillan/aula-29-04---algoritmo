@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 41b</title>
+</head>
+
+<body>
+    <!-- Emitir na tela os números de 5 a X, um embaixo do outro, 
+        onde X é um número escolhido pelo usuário -->
+    Entre com o limite superior: <input id="ipt_sup" onchange="mostrar()">
+    <span id="span_msg"></span>
+</body>
+
+</html>
+<script>
+    var ax_cont = 4;
+    function mostrar() {
+        
+        while (ax_cont < ipt_sup.value) {
+            ax_cont++; 
+            span_msg.innerHTML += `<br>${ax_cont}`;
+        }
+    }
+
+    
+    // function mostrar() {
+    //     var ax_cont = 5;
+    //     span_msg.innerHTML = '';
+    //     while (ax_cont <= ipt_sup.value) {
+    //         span_msg.innerHTML += `<br>${ax_cont}`;
+    //         ax_cont++; 
+    //     }
+    // }
+
+</script>

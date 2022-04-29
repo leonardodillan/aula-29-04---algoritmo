@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Morangos do Sr. Hideo</h1>
+    <div id="div_morango" style="display: block;">
+        <h3>Quant. caixas de morangos à serem vendidos</h3>
+        <input id="inp_morangos" type="text">
+        <button onclick="btMorango()">Abrir as vendas</button>
+    </div>
+    <div id="valor_quantidade" style="display: none;">
+        <h3>Quantidade de caixas vendidas</h3>
+        <input id="inp_quantidade" type="text" onchange="inputCaixas()">
+        <span id="msg_quant"></span>
+        <h3>Valor de venda de cada caixa</h3>
+        <input id="inp_valor" type="text" onchange="inputValor()">
+        <span id="msg_venda"></span>
+        <br>
+        <br>
+        <button onclick="btRegistrar()">Registrar a venda</button>
+    </div>
+    <div id="questao3" style="display: none;">
+        <span id="msg_registrar"></span>
+        <button onclick="btEncerrar()">Encerrar as vendas</button>
+        <span id="resumo_vendas"></span>
+    </div>
+    
+</body>
+</html>
+<script>
+    function btMorango(){
+        
+        cx_morango = inp_morangos.value
+        if(cx_morango < 100){
+            alert ('ERRO - Com esse volume de Morangos não dá para abrir as vendas');
+            
+        }
+        else if(cx_morango > 2000){
+            alert ('AVISO – Tudo isso!!! Verificar se a quantidade está correta');
+        }
+        else{
+            
+            valor_quantidade.style.display = 'block';
+            div_morango.style.display = 'none';
+        }
+        
+    }
+    
+    function inputCaixas(){
+        quantidade = inp_quantidade.value
+        valor = inp_valor.value
+        if(quantidade < 20){
+            msg_quant.innerHTML = 'O valor tem que estar entre 5 e 6 reais';
+            
+        }
+        else if(quantidade >= 20 && quantidade <= 40){
+            msg_quant.innerHTML = 'O valor tem que estar entre 4,50 e 5,50 reais';
+        }
+        else{
+            msg_quant.innerHTML = 'O valor tem que estar entre 4 e 5 reais';
+        }
+    }
+
+    function inputValor(){
+        quantidade = inp_quantidade.value
+        valor = inp_valor.value
+        if(quantidade < 20 && valor < 5 || valor > 6){
+            msg_venda.innerHTML = 'Valor errado para essa quantidade vendida';
+
+        }
+        else if(quantidade >= 20 && quantidade <= 40 && valor >= 4.5 && valor > 5.5){
+            msg_venda.innerHTML = 'Valor errado para essa quantidade vendida';
+
+        }
+        else if(quantidade > 40 && valor >= 4 && valor <= 4.9){
+            msg_venda.innerHTML = 'Valor errado para essa quantidade vendida';
+
+        }
+        else {
+            msg_venda.innerHTML = 'Ok';
+        }
+    }
+
+    function btRegistrar(){
+        quantidade = inp_quantidade.value
+        valor = inp_valor.value
+        cx_morango = inp_morangos.value
+
+        if(quantidade > cx_morango){
+            
+        }
+
+        msg_registrar.innerHTML = `<h3>Com a venda de ${quantidade} caixas de Morango o saldo no restante é de ${cx_morango - quantidade}</h3>`
+
+        questao3.style.display = 'block';
+    }
+
+    function btEncerrar(){
+        
+        if(valor >= 5 || quantidade > 1000){
+            resumo_vendas.innerHTML = `<h3>Venda de Morangos</h3>
+
+                                    Saldo de produto = ${cx_morango - quantidade}
+                                    <br>
+                                    Volume total vendido = ${quantidade}
+                                    <br>
+
+                                    Valor total das vendas = R$ ${quantidade * valor}
+                                    <br>
+
+                                    Valor médio das vendas = R$ ${valor}
+                                    <br>
+
+                                    O turno hoje foi bom
+                                    <br>
+
+                                    O maior volume vendido foi de: 9999
+                                    <br>
+
+                                    O maior valor de venda foi de R$ 99999,99`
+                        }
+
+        else{
+            resumo_vendas.innerHTML = `<h3>Venda de Morangos</h3>
+
+                                    Saldo de produto = ${cx_morango - quantidade}
+                                    <br>
+                                    Volume total vendido = ${quantidade}
+                                    <br>
+
+                                    Valor total das vendas = R$ ${quantidade * valor}
+                                    <br>
+
+                                    Valor médio das vendas = R$ ${valor}
+                                    <br>
+
+                                    O turno hoje foi normal
+                                    <br>
+
+                                    O maior volume vendido foi de: ${quantidade}
+                                    <br>
+
+                                    O maior valor de venda foi de ${valor}`
+                        }
+    }
+        
+
+        
+
+</script>

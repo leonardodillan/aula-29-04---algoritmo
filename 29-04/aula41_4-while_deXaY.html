@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 41c</title>
+</head>
+
+<body>
+    <!-- Emitir na tela todos os números do intervalo de X a Y, um 
+        embaixo do outro, onde X e Y são números escolhidos pelo usuário -->
+    Entre com o limite inferior: <input id="ipt_inf">
+    <br><br>
+    Entre com o limite superior: <input id="ipt_sup">
+    <br><br>
+    <button onclick="mostrar()">Mostrar</button>
+    <br><br>
+    <span id="span_msg"></span>
+</body>
+
+</html>
+<script>
+    function mostrar() {
+        var index = Number(ipt_inf.value);
+        span_msg.innerHTML = 'Números do Intervalo';
+
+        while (index <= ipt_sup.value) {
+            span_msg.innerHTML += `<br>${index}`;
+            index++;
+        }
+    }
+
+</script>

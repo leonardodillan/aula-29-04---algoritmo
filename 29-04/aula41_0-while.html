@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 41 Estr. Repetição</title>
+</head>
+
+<!-- 
+estrutura de REPETIÇÃO - while ("enquanto")
+
+    while (Condição de Repetição) {
+      Comandos
+    };
+
+O teste lógico no while chama-se "Condição de Repetição"
+Enquanto a "Condição de Repetição" for verdadeira (true)...
+    todo o bloco de comandos é executado novamente!
+    ao chegar no final, o while é testado novamente!
+    quando a "Condição de Repetição" for falsa (false), 
+    o bloco while deixa de ser executado
+ -->
+
+
+<!-- 
+Mostrar 5 vezes  a mensagem "O Amor é lindo!" 
+
+ Neste caso:
+ Enquanto (contador < 5) for verdade (true) os comandos 
+     entre as chaves são executados
+     Quando (contador < 5) for false (true) encerra o while
+     
+ Se eu quiser que repita 20 vezes, basta troca 5 por 20 no while 
+-->
+<body>
+    <span id="span_frases"></span>
+</body>
+</html>
+
+<script>
+
+    var contador = 0; // contagem de vezes que já mostrei a mensagem e na tela
+
+    span_frases.innerHTML = '';
+
+    while (contador < 5) {
+        span_frases.innerHTML += 'O amor é lindo! <br>';
+        contador++;
+    }
+
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While</title>
+</head>
+
+<body>
+
+    <h1> </h1>
+    <input id="ipt_num1"><br><br>
+    <input id="ipt_num2"><br><br>
+
+    <button onclick="exibir()">Emitir</button><br>
+    <span id="span_msg"></span>
+</body>
+
+</html>
+<script>
+
+    function exibir() {
+        var numInicial = ipt_num1.value;
+        var numFinal = ipt_num2.value;
+        span_msg.innerHTML = ` `
+
+        while (numInicial <= numFinal) {
+
+            if (numInicial % 2 == 0) {
+                span_msg.innerHTML += `<br> ${numInicial}`;
+                
+            }
+            numInicial++
+        }
+
+    }
+
+</script>

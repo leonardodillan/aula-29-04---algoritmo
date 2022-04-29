@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 09</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        img {
+            height: 300px;
+        }
+        button{
+            padding: 7px;
+        }
+        select{
+            padding: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <select id="slt_especie" onchange="oc_especie()">
+            <option value="0">- Escolha uma espécie -</option>
+            <option value="1">Mamífero</option>
+            <option value="2">Ovíparo</option>
+        </select>
+    </p>
+    <p id="slt_mamifero" style="display: none;">
+        <select id="sltMamifero" onchange="oc_mamifero()">
+            <option value="0">- Escolha um Mamífero -</option>
+            <option value="1">Elefante</option>
+            <option value="2">Porco</option>
+            <option value="3">Coelho</option>
+        </select>
+    <p id="vlr_mamifero" style="display: none;">Valor de compra do animal<br>
+        <input type="text" id="vlrCompraMam">
+    </p>
+    </p>
+    <p id="slt_oviparo" style="display: none;">
+        <select id="sltOviparo" onchange="oc_oviparo()">
+            <option value="0">- Escolha um Ovíparo -</option>
+            <option value="1">Galinha</option>
+            <option value="2">Peixe</option>
+            <option value="3">Tartaruga</option>
+        </select>
+    <p id="vlr_oviparo" style="display: none;">Valor de compra do animal<br>
+        <input type="text" id="vlrCompraOvi">
+    </p>
+    </p>
+    <p id="imagem"></p>
+    <p>
+        <button onclick="calcular()">Calcular imposto</button>
+        <br><br>
+        <button onclick="limpar()">Limpar carrinho</button>
+    </p>
+    <p id="tela"></p>
+</body>
+
+</html>
+<script>
+    var especie = 0;
+    var mamifero = 0;
+    var oviparo = 0;
+    var imposto = 0;
+    var valor = 0;
+
+    function oc_especie() {
+        especie = slt_especie.value;
+        mamifero = sltMamifero.value;
+        oviparo = sltOviparo.value;
+
+        if (especie == 0) {
+            slt_oviparo.style.display = `none`
+            slt_mamifero.style.display = `none`
+            vlr_mamifero.style.display = `none`
+            vlr_oviparo.style.display = `none`
+            imagem.innerHTML = ``
+            tela.innerHTML = ``
+        } if (especie == 1) {
+            slt_mamifero.style.display = `block`
+            slt_oviparo.style.display = `none`
+            vlr_mamifero.style.display = `block`
+            vlr_oviparo.style.display = `none`
+        } if (especie == 2) {
+            slt_oviparo.style.display = `block`
+            slt_mamifero.style.display = `none`
+            vlr_mamifero.style.display = `none`
+            vlr_oviparo.style.display = `block`
+        }
+    }
+
+    function oc_mamifero(){
+        especie = slt_especie.value;
+        mamifero = sltMamifero.value;
+        oviparo = sltOviparo.value;
+
+        if (mamifero == 0) {
+            imagem.innerHTML = ``
+            tela.innerHTML = ``
+        } if (mamifero == 1) {
+            imagem.innerHTML = `<img src="https://static.preparaenem.com/2022/01/elefante-africano-de-savana-na-pastagem.jpg">`
+        } if (mamifero == 2) {
+            imagem.innerHTML = `<img src="https://www.engeplus.com.br/cache/noticia/0158/0158531/o-porco-so-engorda-a-vista-do-dono.jpg?t=20210227115643">`
+        } if (mamifero == 3) {
+            imagem.innerHTML = `<img src="https://s2.static.brasilescola.uol.com.br/be/2022/01/coelho.jpg">`
+        }
+    }
+
+    function oc_oviparo() {
+        especie = slt_especie.value;
+        mamifero = sltMamifero.value;
+        oviparo = sltOviparo.value;
+
+        if (oviparo == 0) {
+            imagem.innerHTML = ``
+            tela.innerHTML = ``
+        } if (oviparo == 1) {
+            imagem.innerHTML = `<img src="https://blog.cobasi.com.br/wp-content/uploads/2021/08/quantos-anos-vive-uma-galinha-1-1.png">`
+        } if (oviparo == 2) {
+            imagem.innerHTML = `<img src="https://s2.static.brasilescola.uol.com.br/be/2020/12/peixe.jpg">`
+        } if (oviparo == 3) {
+            imagem.innerHTML = `<img src="https://blog.cobasi.com.br/wp-content/uploads/2021/05/diferenca-entre-tartaruga-e-jabuti-capa.jpg">`
+        }
+    }
+
+    function calcular() {
+        valorMam = vlrCompraMam.value;
+        valorOvi = vlrCompraOvi.value;
+        imposto = imposto + Number(valorOvi*0.05) + Number(valorMam*0.1);
+        tela.innerHTML = `<h2>O imposto será de R$${imposto.toFixed(2)}</h2>`
+    }
+    function limpar() {
+        imposto = 0;
+        tela.innerHTML = `<h2>Carrinho limpo!</h2>`
+    }
+
+</script>

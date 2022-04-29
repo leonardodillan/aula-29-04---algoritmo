@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula 41 1a15</title>
+</head>
+<body>
+    <!-- Emitir na tela os números de 1 a 15, um embaixo do outro.
+    OBS utilizando estrutura de repetição -->
+    <span id="span_msg"></span>
+</body>
+</html>
+<script>
+    // var ax_cont = 0;  // quantas vezes eu já emiti
+    // while (ax_cont < 15){
+    //     ax_cont++;
+    //     span_msg.innerHTML += `${ax_cont} <br>`;
+    // }
+
+    // Neste caso eu inicio o contador com o primeiro valor,
+    // então tenho que usar (emitir) o contator e ao final 
+    // somar 1 para deixar pronto para o próximo
+    var ax_cont = 1;  
+    while (ax_cont <= 15){
+        span_msg.innerHTML += `${ax_cont} <br>`;
+        ax_cont++; 
+    }
+</script>
